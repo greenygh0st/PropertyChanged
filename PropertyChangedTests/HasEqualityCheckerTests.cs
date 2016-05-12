@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Linq;
 using Mono.Cecil;
 using NUnit.Framework;
+// ReSharper disable UnusedMember.Global
+// ReSharper disable ConvertToAutoPropertyWhenPossible
 
 
 [TestFixture]
@@ -265,7 +267,7 @@ public class HasEqualityCheckerTests
         get { return stringField; }
         set
         {
-            if (String.Equals(value, stringField))
+            if (string.Equals(value, stringField))
             {
                 return;
             }
@@ -277,7 +279,7 @@ public class HasEqualityCheckerTests
         get { return stringField; }
         set
         {
-            if (String.Equals(stringField, value))
+            if (string.Equals(stringField, value))
             {
                 return;
             }
@@ -289,7 +291,7 @@ public class HasEqualityCheckerTests
         get { return stringField; }
         set
         {
-            if (!String.Equals(value, stringField))
+            if (!string.Equals(value, stringField))
             {
                 stringField = value;
             }
@@ -300,7 +302,7 @@ public class HasEqualityCheckerTests
         get { return stringField; }
         set
         {
-            if (!String.Equals(stringField, value))
+            if (!string.Equals(stringField, value))
             {
                 stringField = value;
             }
@@ -312,7 +314,7 @@ public class HasEqualityCheckerTests
         get { return stringField; }
         set
         {
-            if (!String.Equals(stringField, value, StringComparison.Ordinal))
+            if (!string.Equals(stringField, value, StringComparison.Ordinal))
             {
                 stringField = value;
             }

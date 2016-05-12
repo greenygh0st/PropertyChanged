@@ -5,10 +5,7 @@ public class ClassWithBeforeAfterImplementationMissingSetGet : INotifyPropertyCh
 {
     string property;
 
-    public string PropertyNoSet
-    {
-        get { return property; }
-    }
+    public string PropertyNoSet => property;
 
 
     public string PropertyNoGet
@@ -20,11 +17,7 @@ public class ClassWithBeforeAfterImplementationMissingSetGet : INotifyPropertyCh
 
     public void OnPropertyChanged(string propertyName, object before, object after)
     {
-        var handler = PropertyChanged;
-        if (handler != null)
-        {
-            handler(this, new PropertyChangedEventArgs(propertyName));
-        }
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
 }

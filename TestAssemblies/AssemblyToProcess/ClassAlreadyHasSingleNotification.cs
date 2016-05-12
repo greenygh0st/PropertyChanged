@@ -13,15 +13,11 @@ public class ClassAlreadyHasSingleNotification : INotifyPropertyChanged
             OnPropertyChanged("Property1");
         }
     }
-    public string Property2 { get { return Property1; } }
+    public string Property2 => Property1;
 
     public virtual void OnPropertyChanged(string propertyName)
     {
-        var handler = PropertyChanged;
-        if (handler != null)
-        {
-            handler(this, new PropertyChangedEventArgs(propertyName));
-        }
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
